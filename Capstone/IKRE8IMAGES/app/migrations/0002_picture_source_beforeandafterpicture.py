@@ -8,23 +8,37 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0001_initial'),
+        ("app", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='picture',
-            name='source',
-            field=models.ImageField(blank=True, null=True, upload_to=''),
+            model_name="picture",
+            name="source",
+            field=models.ImageField(blank=True, null=True, upload_to=""),
         ),
         migrations.CreateModel(
-            name='BeforeAndAfterPicture',
+            name="BeforeAndAfterPicture",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('source_1', models.ImageField(blank=True, null=True, upload_to='')),
-                ('source_2', models.ImageField(blank=True, null=True, upload_to='')),
-                ('owner', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50)),
+                ("source_1", models.ImageField(blank=True, null=True, upload_to="")),
+                ("source_2", models.ImageField(blank=True, null=True, upload_to="")),
+                (
+                    "owner",
+                    models.OneToOneField(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]
