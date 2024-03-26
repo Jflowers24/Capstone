@@ -43,31 +43,33 @@ class BeforeAndAfterPicture(models.Model):
 
 
 # Create
-def add_picture(name: str, source_1: str, owner: object):
+def add_picture(name: str, source_1: str, owner: object) -> Picture:
     return Picture.objects.create(name=name, source_1=source_1, owner=owner)
 
 
-def add_before_after_picture(name: str, source_1: str, source_2: str, owner: object):
+def add_before_after_picture(
+    name: str, source_1: str, source_2: str, owner: object
+) -> BeforeAndAfterPicture:
     return BeforeAndAfterPicture.objects.create(
         name=name, source_1=source_1, source_2=source_2, owner=owner
     )
 
 
 # Read
-def get_all_pictures():
+def get_all_pictures() -> list:
     return Picture.objects.all()
 
 
-def get_all_before_after_pictures():
+def get_all_before_after_pictures() -> list:
     return BeforeAndAfterPicture.objects.all()
 
 
-def get_everything_pictures():
+def get_everything_pictures() -> list:
     return [Picture.objects.all(), BeforeAndAfterPicture.objects.all()]
 
 
 # Update
-def modify_picture_by_name(name: str, new_name=None, new_source=None):
+def modify_picture_by_name(name: str, new_name=None, new_source=None) -> None:
     target = Picture.objects.get(name=name)
     if new_name:
         target.name = new_name
@@ -76,7 +78,7 @@ def modify_picture_by_name(name: str, new_name=None, new_source=None):
     target.save()
 
 
-def modify_picture_by_id(id: int, new_name=None, new_source=None):
+def modify_picture_by_id(id: int, new_name=None, new_source=None) -> None:
     target = Picture.objects.get(id=id)
     if new_name:
         target.name = new_name
@@ -86,21 +88,21 @@ def modify_picture_by_id(id: int, new_name=None, new_source=None):
 
 
 # Delete
-def remove_picture_by_name(name: str):
+def remove_picture_by_name(name: str) -> None:
     target = Picture.objects.get(name=name)
     target.delete()
 
 
-def remove_picture_by_id(id: int):
+def remove_picture_by_id(id: int) -> None:
     target = Picture.objects.get(id=id)
     target.delete()
 
 
-def remove_before_after_picture_by_name(name: str):
+def remove_before_after_picture_by_name(name: str) -> None:
     target = BeforeAndAfterPicture.objects.get(name=name)
     target.delete()
 
 
-def remove_before_after_picture_by_id(id: int):
+def remove_before_after_picture_by_id(id: int) -> None:
     target = BeforeAndAfterPicture.objects.get(id=id)
     target.delete()

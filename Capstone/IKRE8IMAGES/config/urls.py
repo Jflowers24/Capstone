@@ -22,4 +22,9 @@ from app.views import *
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home_page, name="home"),
+    path("about", about_page, name="about"),
+    path("gallery", gallery_page, name="gallery"),
+    path("booking", booking_page, name="booking"),
+    path("owner_login", owner_login, name="ownerLogin"),
+    path("owner_dashboard", owner_dash, name="ownerDashboard"),
 ]
