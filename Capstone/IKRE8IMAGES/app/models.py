@@ -3,10 +3,10 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 
 
 # Create your models here.
-class Client(AbstractUser):
+class UserClient(AbstractUser):
 
     def __str__(self):
-        return f"Client  Email: {self.email}"
+        return f"UserClient  Email: {self.email}"
 
     client_permissions = models.ManyToManyField(
         Permission,
@@ -26,7 +26,6 @@ class Client(AbstractUser):
 class Picture(models.Model):
     name = models.CharField(max_length=50, unique=True)
     source = models.ImageField(null=True, blank=True)
-    owner = models.OneToOneField(Client, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Name: {self.name}, Owned by: {self.owner}."
@@ -36,7 +35,6 @@ class BeforeAndAfterPicture(models.Model):
     name = models.CharField(max_length=50, unique=True)
     source_1 = models.ImageField(null=True, blank=True)  # Before Picture
     source_2 = models.ImageField(null=True, blank=True)  # After Picture
-    owner = models.OneToOneField(Client, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Name: {self.name}, Owned by: {self.owner}."
@@ -52,15 +50,15 @@ class Review(models.Model):
 
 
 # Create
-def add_picture(name: str, source_1: str, owner: object) -> Picture:
-    return Picture.objects.create(name=name, source_1=source_1, owner=owner)
+def add_picture(name: str, source_1: str) -> Picture:
+    return Picture.objects.create(name=name, source_1=source_1)
 
 
 def add_before_after_picture(
-    name: str, source_1: str, source_2: str, owner: object
+    name: str, source_1: str, source_2: str
 ) -> BeforeAndAfterPicture:
     return BeforeAndAfterPicture.objects.create(
-        name=name, source_1=source_1, source_2=source_2, owner=owner
+        name=name, source_1=source_1, source_2=source_2
     )
 
 
