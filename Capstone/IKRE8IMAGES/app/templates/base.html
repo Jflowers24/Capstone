@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "static.css" %}">
+    <link rel="icon" type="image/png" href="{% static 'images/kre8.png' %}" />
+  </head>
+  <header class="HomeHeader">
+    <table class="HeadTable">
+      <tr>
+        <td></td>
+        <td style="text-align:center;"><img src={% static "images/kre8.png" %} style="height:50pt"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <a href="{% url 'gallery' %}"><td class="HeadTD">Gallery</td></a>
+        <a href="{% url 'booking' %}"><td class="HeadTD">Booking</td></a>
+        <a href="{% url 'about' %}"><td class="HeadTD">About</td></a>
+    </table>
+    
+  </header>
+    {% block content %}{% endblock content %}
+</html>
