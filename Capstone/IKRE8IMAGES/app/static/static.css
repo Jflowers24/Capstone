@@ -1,0 +1,64 @@
+:root {
+    --MainBody: rgb(235, 235, 235);
+    --TopBody: rgb(133, 84, 163);
+    --NavBar: rgb(55, 44, 62);
+    --NavBarHover: rgb(78, 62, 88);
+  }
+  
+  body,
+  html {
+    padding: 0;
+    margin: 0;
+    font-family: "Courier New", Courier, monospace;
+  }
+  
+  .HomeBody {
+    background-image: linear-gradient(
+      to top,
+      var(--MainBody),
+      var(--MainBody),
+      var(--MainBody),
+      var(--TopBody)
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .HomeHeader {
+    background-color: var(--NavBar);
+    background-image: linear-gradient(
+      to top,
+      var(--NavBar),
+      var(--NavBar),
+      rgb(41, 33, 47)
+    );
+    height: 95pt;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .HeadTable {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .HeadTD {
+    width: 33%;
+    height: 30pt;
+    background-color: var(--NavBar);
+    color: rgb(211, 175, 255);
+    border: none;
+    font-size: 15pt;
+    transition: 0.5s;
+  }
+  
+  .HeadTD:hover {
+    cursor: pointer;
+    background-color: var(--NavBarHover);
+  }
+  
+  .StructureTool {
+    border: 3pt solid black;
+  }
+  

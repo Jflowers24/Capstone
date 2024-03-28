@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "appointment",
+    #"appointment",
     "django_q",
     "app",
     "django.contrib.admin",
